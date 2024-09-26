@@ -34,11 +34,14 @@ public partial class MainPageModel : ObservableObject
     {
         await Task.Delay(2000);
         
-        Items.Clear();
-        foreach (var itemViewModel in GetItems())
+        Application.Current?.Dispatcher.Dispatch(() =>
         {
-            Items.Add(itemViewModel);
-        }
+            Items.Clear();
+            foreach (var itemViewModel in GetItems())
+            {
+                Items.Add(itemViewModel);
+            }
+        });
     }
 
     List<ItemViewModel> GetItems()

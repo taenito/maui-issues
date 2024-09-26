@@ -15,12 +15,12 @@
         <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
             <CollectionView ItemSizingStrategy="MeasureAllItems" ItemsSource="{Binding Items}">
                 <CollectionView.Header>
-                    <VerticalStackLayout BackgroundColor="LightYellow" Padding="10">
+                    <VerticalStackLayout BackgroundColor="#88FFFFE0" Padding="10">
                         <Label Text="Header" />
                     </VerticalStackLayout>
                 </CollectionView.Header>
                 <CollectionView.Footer>
-                    <VerticalStackLayout BackgroundColor="LightPink" Padding="10">
+                    <VerticalStackLayout BackgroundColor="#88FFB6B1" Padding="10">
                         <Label Text="Footer" />
                     </VerticalStackLayout>
                 </CollectionView.Footer>

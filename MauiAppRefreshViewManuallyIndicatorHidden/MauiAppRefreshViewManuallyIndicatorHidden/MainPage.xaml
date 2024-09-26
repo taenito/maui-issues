@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    Title="App"
+    x:Class="MauiAppRefreshViewManuallyIndicatorHidden.MainPage"
+    x:DataType="local:MainPageModel"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:local="clr-namespace:MauiAppRefreshViewManuallyIndicatorHidden"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding RefreshCommand}" Text="Refresh" />
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView ItemSizingStrategy="MeasureAllItems" ItemsSource="{Binding Items}">
+                <CollectionView.Header>
+                    <VerticalStackLayout BackgroundColor="#88FFFFE0" Padding="10">
+                        <Label Text="Header" />
+                    </VerticalStackLayout>
+                </CollectionView.Header>
+                <!--<CollectionView.Footer>
+                    <VerticalStackLayout BackgroundColor="#88FFB6B1" Padding="10">
+                        <Label Text="Footer" />
+                    </VerticalStackLayout>
+                </CollectionView.Footer>-->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="local:ItemViewModel">
+                        <local:ItemView />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </Grid>
+</ContentPage>

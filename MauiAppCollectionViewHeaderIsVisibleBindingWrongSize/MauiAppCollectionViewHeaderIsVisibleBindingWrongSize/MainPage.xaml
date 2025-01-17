@@ -22,8 +22,8 @@
 
                         <Label Text="test" />
 
-                        <VerticalStackLayout>
-                            <ContentView HeightRequest="100" IsVisible="{Binding ShowHeader}" />
+                        <VerticalStackLayout IsVisible="{Binding ShowHeader}">
+                            <ContentView HeightRequest="100" />
                             <ContentView HeightRequest="100" />
                         </VerticalStackLayout>
                     </VerticalStackLayout>

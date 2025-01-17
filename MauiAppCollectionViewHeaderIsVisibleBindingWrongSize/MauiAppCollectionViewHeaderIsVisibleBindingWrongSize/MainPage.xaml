@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiAppCollectionViewHeaderIsVisibleBindingWrongSize.MainPage"
+    x:DataType="local:MainPageModel"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:local="clr-namespace:MauiAppCollectionViewHeaderIsVisibleBindingWrongSize"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding RefreshCommand}" Text="Refresh" />
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView
+                IsGrouped="True"
+                ItemSizingStrategy="MeasureAllItems"
+                ItemsSource="{Binding Items}">
+
+                <CollectionView.Header>
+                    <VerticalStackLayout BackgroundColor="Red" Padding="10">
+
+                        <Label Text="test" />
+
+                        <VerticalStackLayout>
+                            <ContentView HeightRequest="100" IsVisible="{Binding ShowHeader}" />
+                            <ContentView HeightRequest="100" />
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </CollectionView.Header>
+
+                <CollectionView.GroupFooterTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Padding="10">
+                            <Label Text="Group Footer" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.GroupFooterTemplate>
+
+                <CollectionView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Padding="10">
+                            <Label Text="Group Header" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.GroupHeaderTemplate>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="local:ItemViewModel">
+                        <local:ItemView />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </RefreshView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentView
+    x:Class="MauiAppCollectionView2BindingWithSource.ItemView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiAppCollectionView2BindingWithSource"
+    x:DataType="local:ItemViewModel">
+
+    <ContentView Padding="10">
+        <ContentView Padding="5" BackgroundColor="#88D3D3D3">
+            <VerticalStackLayout Spacing="6">
+                <Label Text="{Binding Text}" />
+                <Button Command="{Binding ExecuteByViewModelCommand}" Text="By ViewModel" />
+                <Button
+                    Command="{Binding ChangeLastCommandByAncestorCommand, Source={RelativeSource AncestorType={x:Type local:MainPageModel}}, x:DataType=local:MainPageModel}"
+                    CommandParameter="{Binding .}"
+                    Text="By Ancestor" />
+            </VerticalStackLayout>
+        </ContentView>
+    </ContentView>
+</ContentView>

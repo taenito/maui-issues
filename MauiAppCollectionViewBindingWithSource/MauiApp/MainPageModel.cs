@@ -39,6 +39,13 @@ public partial class MainPageModel : ObservableObject
     }
 
     [RelayCommand]
+    async Task ChangeLastCommandByAncestorAndReferenceAsync(ItemViewModel itemViewModel)
+    {
+        LastCommandType = "AncestorAndReference";
+        LastItemText = itemViewModel.Text;
+    }
+
+    [RelayCommand]
     async Task ChangeLastCommandByViewModelAsync(ItemViewModel itemViewModel)
     {
         LastCommandType = "ViewModel";

@@ -22,7 +22,7 @@
                 </CollectionView.Header>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="local:ItemViewModel">
-                        <local:ItemView />
+                        <local:ItemView CommandByAncestorAndReference="{Binding ChangeLastCommandByAncestorAndReferenceCommand, Source={RelativeSource AncestorType={x:Type local:MainPageModel}}, x:DataType=local:MainPageModel}" CommandByAncestorAndReferenceParameter="{Binding .}" />
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

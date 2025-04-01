@@ -5,6 +5,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MauiAppCollectionView2BindingWithSource"
+    x:Name="Root"
     x:DataType="local:ItemViewModel">
 
     <ContentView Padding="10">
@@ -14,6 +15,10 @@
                 <Button Command="{Binding ExecuteByViewModelCommand}" Text="By ViewModel" />
                 <Button
                     Command="{Binding ChangeLastCommandByAncestorCommand, Source={RelativeSource AncestorType={x:Type local:MainPageModel}}, x:DataType=local:MainPageModel}"
+                    CommandParameter="{Binding .}"
+                    Text="By Ancestor" />
+                <Button
+                    Command="{Binding CommandByAncestorAndReference, Source={x:Reference Root}}"
                     CommandParameter="{Binding .}"
                     Text="By Ancestor" />
             </VerticalStackLayout>
